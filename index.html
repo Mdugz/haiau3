@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#071b35">
+  <title>Hải Âu — Sky Guardian</title>
+  <link rel="stylesheet" href="./style.css?v=3">
+</head>
+<body>
+  <main id="app">
+    <canvas id="game" aria-label="Game Hải Âu"></canvas>
+
+    <section id="menu" class="screen">
+      <div class="card">
+        <div class="eyebrow">SKY GUARDIAN</div>
+        <h1>HẢI ÂU</h1>
+        <p>Vượt qua 3 màn, mỗi màn cách nhau 300 điểm và hạ Boss ở Màn 3.</p>
+        <div class="stats">
+          <span>🏆 Cao nhất: <b id="menuHigh">0</b></span>
+          <span>🪙 Xu: <b id="menuCoins">0</b></span>
+        </div>
+        <button id="playBtn">CHƠI NGAY</button>
+        <button id="shopBtn" class="secondary">CỬA HÀNG</button>
+        <p class="hint">PC: WASD / phím mũi tên · Mobile: 4 nút điều hướng ở góc trái dưới</p>
+      </div>
+    </section>
+
+    <section id="shop" class="screen hidden">
+      <div class="card">
+        <div class="eyebrow">SHOP</div>
+        <h2>BÙA HỘ MỆNH</h2>
+        <p>Hồi sinh tại vị trí hiện tại, bất tử 3 giây.</p>
+        <div class="shopRow">
+          <span>🪙 Giá: <b>50 xu</b></span>
+          <span>Đang có: <b id="amulets">0</b></span>
+        </div>
+        <button id="buyBtn">MUA BÙA — 50 🪙</button>
+        <button id="backBtn" class="secondary">QUAY LẠI</button>
+      </div>
+    </section>
+
+    <section id="gameover" class="screen hidden">
+      <div class="card">
+        <div class="eyebrow">KẾT THÚC</div>
+        <h2>Game Over?</h2>
+        <p>Điểm: <b id="finalScore">0</b> · Xu: <b id="finalCoins">0</b></p>
+        <div id="reviveBox" class="revive hidden">
+          <p>Bùa Hộ Mệnh còn <b id="countdown">10</b>s</p>
+          <button id="reviveBtn">DÙNG BÙA</button>
+        </div>
+        <button id="retryBtn">CHƠI LẠI</button>
+        <button id="menuBtn" class="secondary">MENU</button>
+      </div>
+    </section>
+
+    <section id="victory" class="screen hidden">
+      <div class="card victory">
+        <div class="eyebrow">STAGE 4</div>
+        <h2>Not bad, baby!</h2>
+        <p>Boss đã bị đánh bại. Bầu trời sau cơn mưa đang chờ bạn.</p>
+        <p>Điểm: <b id="winScore">0</b> · Thưởng: <b>+100 🪙</b></p>
+        <button id="winMenuBtn">VỀ MENU</button>
+      </div>
+    </section>
+
+    <div id="hud" class="hidden">
+      <div class="hudTop">
+        <div>❤️ <span id="lives">3</span></div>
+        <div>🏆 <span id="score">0</span></div>
+        <div>🪙 <span id="coins">0</span></div>
+        <div>🛡️ <span id="shield">0</span></div>
+        <div id="stage">BẦU TRỜI TRONG XANH</div>
+      </div>
+      <div id="bossBar" class="bossBar hidden">
+        <span>BOSS</span><div><i id="bossHp"></i></div>
+      </div>
+    </div>
+
+    <div id="mobileControls" class="hidden" aria-label="Điều khiển mobile">
+      <button class="moveBtn up" data-dir="up" aria-label="Lên">▲</button>
+      <button class="moveBtn left" data-dir="left" aria-label="Trái">◀</button>
+      <button class="moveBtn down" data-dir="down" aria-label="Xuống">▼</button>
+      <button class="moveBtn right" data-dir="right" aria-label="Phải">▶</button>
+    </div>
+    <div id="toast"></div>
+  </main>
+  <script src="./js/main.js?v=3" defer></script>
+</body>
+</html>
